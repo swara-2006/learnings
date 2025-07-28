@@ -29,3 +29,21 @@ ii.
 | Cleanup something (like a timer)     | `return () => { cleanup }` inside it|
 
 //Random -Fetching API
+const fetch_data= async () => {
+    const response= await fetch("https://randomuser.me/api")
+    const data=await response.json()
+    console.log(data);
+    
+    setUser(data.results[0])
+    
+  }
+
+if u have set your useState initial as null then before fetching api first check if data is available.
+{user?(<div>
+    <h2>User name :{user.name.first} {user.name.last}</h2>
+    <h2>User email :{user.email}</h2>
+    <h2>Gender :{user.gender}</h2>
+    <h3>location : {user.location.city},{user.location.state}</h3>
+    </div>):
+    (  <p>Still loading..........</p>
+    )}
